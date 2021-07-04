@@ -18,7 +18,7 @@ export class ContactFormComponent implements OnInit {
       name: ['', [Validators.required]],
       nip: ['', [Validators.required, this.validateNip()]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.pattern('[- +()0-9]{9,}')]],
+      phone: ['', [Validators.pattern('[+()0-9]{9,}')]],
       topic: ['cooperation', [Validators.required]],
       driversLicense: [''],
       message: [''],
@@ -33,11 +33,11 @@ export class ContactFormComponent implements OnInit {
       return (control: AbstractControl) => validatePolish.nip(control.value) ? null : { incorrectNip: control.value };
   }
   
-  public checkAll(event: any): void {
+  public checkAllAgreements(event: any): void {
     this.contactForm.controls.agreements.setValue({ processing: event.target.checked, marketing: event.target.checked });
   }
   
-  public allAgreementsSelcted(): boolean {
+  public areAllAgreementsSelected(): boolean {
     return Object.values(this.contactForm.controls.agreements.value).every(value => value === true);
   }
   
