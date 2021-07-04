@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.wrapper {
+  background-color: #F9F9F9;
+  font-family: 'Poppins', sans-serif;
+  height: fit-content;
+  min-height: 100vh;
+  width: fit-content;
+  min-width: 100vw;
+  max-width: 100vw;
+  padding: 30px;
+  display: flex;
+}
+
+.wrapper .form_card {
+  border-radius: 25px;
+  box-shadow: 0 40px 40px rgba(103, 103, 103, 0.05);
+  border: none;
+  padding: 50px;
+  min-width: 530px;
+}
+
+.wrapper .form_card h1.form_title {
+  font-size: 24px;
+  line-height: 32px;
+  color: #1E1D1D;
+}
+
+.wrapper .form_card p.form_description {
+  font-size: 14px;
+  line-height: 25px;
+  color: #949494;
+}
+
+.wrapper .form .form-group {
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+}
+
+.wrapper .form .form-group:focus-within {
+  background-color: #fff;
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .form .form-group.required label::after {
+  content: " *";
+  color: #FB660A;
+}
+
+.wrapper .form .form-group.invalid {
+  border: 3px solid #FF4545;
+}
+
+.wrapper .form .form_agreements,
+.wrapper .form .form-group label {
+  font-size: 12px;
+}
+
+.wrapper .form .form-group input[type="text"],
+.wrapper .form .form-group input[type="email"],
+.wrapper .form .form-group select,
+.wrapper .form .form-group textarea  {
+  border: none;
+  background: #F9F9F9;
+  font-size: 15px;
+  padding-left: 0;
+}
+
+.wrapper .form .form-group input[type="text"]::placeholder,
+.wrapper .form .form-group input[type="email"]::placeholder {
+  color: rgba(148, 148, 148, 0.6);
+}
+
+.wrapper .form .form-group input[type="text"]:focus,
+.wrapper .form .form-group input[type="email"]:focus,
+.wrapper .form .form-group select:focus,
+.wrapper .form .form-group textarea:focus {
+  border: none;
+  background: #Fff;
+  outline: none;
+  box-shadow: none;
+}
+
+.wrapper .form .form-group select {
+  appearance: auto;
+}
+
+.wrapper .form .form-group input[type="radio"] {
+  appearance: none;
+	background-color: #fff;
+	border: 3px solid #f5f5f5;
+	box-shadow: none;
+	padding: 8px;
+	border-radius: 50%;
+  margin-right: 5px;
+  margin-left: 15px;
+	display: inline-block;
+	position: relative;
+}
+
+.wrapper .form .form-group input[type="radio"]:focus-visible {
+	border: 3px solid #FB660A;
+  outline: none;
+}
+
+.wrapper .form .form-group input[type="radio"]:checked {
+	background-color: #fff;
+	border: 3px solid #FB660A;
+	box-shadow: none;
+	color: #FB660A;
+}
+
+.wrapper .form .form-group input[type="radio"]:checked::after {
+	content: '●';
+	font-size: 20px;
+	position: absolute;
+	top: -8px;
+	right: 2px;
+	color: #FB660A;
+}
+
+.wrapper .form .form_agreements .form-group {
+  background-color: #fff;
+  margin-bottom: 0;
+}
+
+.wrapper .form .form_agreements .form-group:focus-within {
+  box-shadow: none;
+}
+
+.wrapper .form .form-group input[type="checkbox"] {
+  appearance: none;
+	background-color: #fff;
+	border: 3px solid #f5f5f5;
+  box-shadow: none;
+	padding: 9px;
+	border-radius: 5px;
+	display: inline-block;
+	position: relative;
+  margin-right: 15px;
+}
+
+.wrapper .form .form-group input[type="checkbox"]:focus-visible,
+.wrapper .form .form-group input[type="checkbox"]:checked {
+	border: 3px solid #FB660A;
+	box-shadow: 0 1px 2px #fb660a;
+	background-color: #fff;
+  outline: none;
+}
+
+.wrapper .form .form-group input[type="checkbox"]:checked::after {
+	content: url("../../assets/Path.svg");
+	position: absolute;
+	top: 2.5px;
+	left: 3px;
+}
+
+.wrapper .form .form_submit-btn {
+  background-color: #40DE4E;
+  width: 240px;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 40px;
+  margin: 0 auto;
+  box-shadow: 0 0 30px 0 rgba(64, 222, 78, 0.3);
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    padding: 30px 0;
+    display: block;
+    text-align: center;
+  }
+  
+  .wrapper .form_card {
+    min-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .wrapper {
+    padding: 20px 0;
+  }
+  
+  .wrapper .form_card {
+    min-width: 300px;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 300px) {
+  .wrapper .form_card {
+    min-width: 260px;
+    padding: 30px 10px;
+  }
+}

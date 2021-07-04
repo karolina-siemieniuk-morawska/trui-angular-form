@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { validatePolish } from 'validate-polish';
 
 @Component({
   selector: 'app-contact-form',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
 
-  constructor() { }
+  public contactForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.contactForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      nip: ['', [Validators.required, this.validateNip()]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.pattern('[+()0-9]{9,}')]],
+      topic: ['cooperation', [Validators.required]],
+      driversLicense: [''],
+      message: [''],
+      agreements: this.formBuilder.group({
+        processing: [false, [Validators.requiredTrue]],
+        marketing: [false]
+      })
+    });  
   }
 
+  private validateNip(): ValidatorFn {
+      return (control: AbstractControl) => validatePolish.nip(control.value) ? null : { incorrectNip: control.value };
+  }
+  
+  public checkAllAgreements(event: any): void {
+    this.contactForm.controls.agreements.setValue({ processing: event.target.checked, marketing: event.target.checked });
+  }
+  
+  public areAllAgreementsSelected(): boolean {
+    return Object.values(this.contactForm.controls.agreements.value).every(value => value === true);
+  }
+  
+  public onSubmit(): void {
+    console.log(this.contactForm.value);
+    this.contactForm.reset();
+  }
 }

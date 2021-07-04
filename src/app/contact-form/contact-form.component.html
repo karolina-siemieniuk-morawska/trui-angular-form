@@ -1,1 +1,80 @@
-<p>contact-form works!</p>
+<div class="wrapper flex-column align-items-center justify-content-center">
+  <div class="logo mb-5">
+    <img src="assets/logo.png" alt="Trui logo">
+  </div>
+
+  <div class="form_card card d-flex flex-column align-items-center w-25">
+    <h1 class="form_title fw-bold text-center">Wypełnij formularz</h1>
+    <p class="form_description text-center py-3">Skontaktujemy się z Tobą najszybciej jak to będzie możliwe.</p>
+
+    <form [formGroup]="contactForm" (submit)="onSubmit()" class="form d-flex flex-column align-items-center">
+      <div class="form-group w-100 required" [ngClass]="contactForm.controls.name.touched && !contactForm.controls.name.valid ? 'invalid' : ''">
+        <label for="name" class="fw-bold">Nazwa firmy / Imię i nazwisko</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="np. Apple">
+      </div>
+
+      <div class="form-group w-100 required" [ngClass]="contactForm.controls.nip.touched && !contactForm.controls.nip.valid ? 'invalid' : ''">
+        <label for="nip" class="fw-bold">Numer NIP</label>
+        <input type="text" class="form-control" formControlName="nip" placeholder="123-45-67-890">
+      </div>
+    
+      <div class="form-group w-100 required" [ngClass]="contactForm.controls.email.touched && !contactForm.controls.email.valid ? 'invalid' : ''">
+        <label for="email" class="fw-bold">E-mail</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="example@email.com">
+      </div>
+    
+      <div class="form-group w-100" [ngClass]="contactForm.controls.phone.touched && !contactForm.controls.phone.valid ? 'invalid' : ''">
+        <label for="phone" class="fw-bold">Numer telefonu</label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="123 456 789">
+      </div>
+
+      <div class="form-group w-100 required">
+        <label for="topic" class="fw-bold">Temat</label>
+        <select class="form-control" formControlName="topic">
+          <option value="cooperation">Współpraca</option>
+          <option value="other">Inne</option>
+        </select>
+      </div>
+
+      <div class="form-group d-flex justify-content-between w-100">
+        <label class="fw-bold">Czy posiadasz prawo jazdy kat. B?</label>
+
+        <div class="d-flex">
+          <label class="d-flex align-items-center">
+            <input type="radio" formControlName="driversLicense" [value]="true">
+            Tak
+          </label>
+  
+          <label class="d-flex align-items-center">
+            <input type="radio" formControlName="driversLicense" [value]="false">
+            Nie
+          </label>
+        </div>
+      </div>
+    
+      <div class="form-group w-100">
+        <label for="message" class="fw-bold">Treść wiadomości</label>
+        <textarea class="form-control" formControlName="message" placeholder="Dzień dobry,"></textarea>
+      </div>
+
+      <div class="form_agreements" formGroupName="agreements">
+        <div class="form-group d-flex align-items-center">
+          <input type="checkbox" name="all" (change)="checkAllAgreements($event)" [checked]="areAllAgreementsSelected()">
+          <label for="all" class="fw-bold">Zaznacz wszystkie</label>
+        </div>
+
+        <div class="form-group d-flex align-items-center required">
+          <input type="checkbox" formControlName="processing" [value]="true">
+          <label for="agreements.processing">Wyrażam zgodę na przetwarzanie moich danych osobowych podanych przeze mnie w powyższym formularzu w celu kontaktowym.</label>
+        </div>
+
+        <div class="form-group d-flex align-items-center">
+          <input type="checkbox" formControlName="marketing" [value]="true">
+          <label for="phone">Wyrażam zgodę na kontakt telefoniczny w sprawach marketingowych.</label>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!contactForm.valid" class="btn fw-bold form_submit-btn mt-4" type="submit">Wyślij wiadomość</button>
+    </form>
+  </div>
+</div>
