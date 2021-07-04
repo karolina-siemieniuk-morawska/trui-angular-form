@@ -13,7 +13,7 @@ Validation of input fields is mostly done using Angular's Reactive Form Validato
 
 Mockup: https://www.sketch.com/s/2fe4d6de-2ccc-4cda-8a4e-0b4ea4ca6ce8/a/m1rL0G9#Inspector
 
-Link to deployed solution: [trui-task.netlify.app] (Netlify lost custom checkmark in the checkbox, the issue doesn't happen locally).
+Link to deployed solution: https://trui-task.netlify.app (Netlify lost custom checkmark in the checkbox, the issue doesn't happen locally).
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8faa167d-7280-4dc7-b9d9-aed1f4607aae/deploy-status)](https://app.netlify.com/sites/trui-task/deploys)
 
