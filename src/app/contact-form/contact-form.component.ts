@@ -11,7 +11,7 @@ export class ContactFormComponent implements OnInit {
 
   public contactForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
