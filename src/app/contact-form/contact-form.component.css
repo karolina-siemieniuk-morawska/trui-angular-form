@@ -49,6 +49,10 @@
   color: #FB660A;
 }
 
+.wrapper .form .form-group.invalid {
+  border: 3px solid #FF4545;
+}
+
 .wrapper .form .form_agreements,
 .wrapper .form .form-group label {
   font-size: 12px;
@@ -120,6 +124,10 @@
 .wrapper .form .form_agreements .form-group {
   background-color: #fff;
   margin-bottom: 0;
+}
+
+.wrapper .form .form_agreements .form-group:focus-within {
+  box-shadow: none;
 }
 
 .wrapper .form .form-group input[type="checkbox"] {
